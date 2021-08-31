@@ -47,11 +47,17 @@ function isVowel(char) {
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
+  let isVowel = false, vowel;
 function rovarspraket(text) {
   for (let i = 0; i < array.length; i++) {
-      
+      vowel = vowel[i];
+      if (letter == vowel) {
+  isVowel = true;
+  break;
+      }
   }
 }
+if (!isVowel);
 
 
   // ---------------------
