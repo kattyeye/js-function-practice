@@ -4,25 +4,54 @@
   // ---------------------
   // Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
   // ---------------------
-
-
+ function max() {
+  if (4 > 2) {
+return 4;
+} else{
+  return false;
+} }
+max();
 
   // ---------------------
   // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
   // ---------------------
 
-
+function maxOfThree() {
+  let max = -Infinity;
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > max){
+      max = arguments[i];
+    }
+  }
+  return max;
+}
+// maxOfThree(1, 2, 3);
 
   // ---------------------
   // Define a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
   // ---------------------
 
-
+function isVowel(char) {
+  if (char === "a" ||
+      char === "e" ||
+      char === "i" ||
+      char === "o" ||
+      char === "u" ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// isVowel('a');
 
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
-
+function rovarspraket(text) {
+  for (let i = 0; i < array.length; i++) {
+      
+  }
+}
 
 
   // ---------------------
