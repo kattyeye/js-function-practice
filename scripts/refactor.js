@@ -153,7 +153,17 @@ var spanishColor = function(colorName) {
 
 // Put your answer below -------------------------
 
+function spanishColor(colorName) {
+ return { 
+   rojo : '#ff0000',
+   blanco : '#ffffff',
+   azul : '#0000ff',
+   verde : '#00ff00',
+   negro : '#000000'
+ }
+ 
 
+}
 
 // -----------------------------------------------
 
@@ -171,6 +181,8 @@ var foo = "bar";
 
 // Put your answer below -------------------------
 
+let foo = foo;
+  foo = "bar";
 
 // -----------------------------------------------
 
@@ -194,7 +206,12 @@ var callTenTimes = function(callback) {
 // callTenTime(functionName);
 
 // Put your answer below -------------------------
-
+function callNtimes(callMe) {
+  for (let i = 0; i < callMe.length; i++) {
+    
+  }
+  return callMe;
+}
 
 // -----------------------------------------------
 
@@ -223,7 +240,15 @@ var decreaseScore = function() {
 
 // Put your answer below -------------------------
 
+var score = {i};
 
+var increaseScore = function() {
+  score++;
+};
+
+var decreaseScore = function() {
+  score--;
+};
 
 // -----------------------------------------------
 
@@ -244,7 +269,10 @@ var twoPlusTwo = addNumbers(2,2);
 
 // Put your answer below -------------------------
 
-
+let addNumbers = function(numberA, numberB) {
+return numberA + numberB;
+}
+let twoPlusTwo = addNumbers (2,2); 
 
 // -----------------------------------------------
 
@@ -271,7 +299,13 @@ var accelerate = function(amount) {
 
 // Put your answer below -------------------------
 
-
+// The function was setting the speed to NaN because amount is not defined
+function accelerate(amount) {
+  for (i=0; i < amount; i++){
+    speed += [i];
+  }
+  
+}
 
 // -----------------------------------------------
 
@@ -314,6 +348,11 @@ var callLater = function(timeout, callback) {
 };
 
 // Put your answer below -------------------------
+
+setTimeout(function callLater(timeout, callback){
+return 
+}, 3000) ;
+
 
 
 // -----------------------------------------------
