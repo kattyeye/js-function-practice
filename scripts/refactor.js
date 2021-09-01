@@ -33,6 +33,9 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
+var doSomethingCool = function() {
+  console.log("Something Cool!");
+}
 
 // -----------------------------------------------
 
@@ -53,6 +56,12 @@ setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
+let sayHi = function(){
+  alert("Hello, World!");
+}
+setTimeout(function(){
+  alert("Hello, World!");
+}, 2000);
 
 // -----------------------------------------------
 
@@ -83,8 +92,9 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+// [b] because the function is logging the first letter it reads and letter = "y" is defined above the console.log which is being hoisted, then the function resets and looks outside of the function and z is defined.
 
-// -----------------------------------------------
+// // -----------------------------------------------
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -105,6 +115,9 @@ var reverseStr = function(str) {
 
 // Put your answer below -------------------------
 
+function reverseStr (str) {
+  return [...str].reverse().join("");
+}
 
 
 // -----------------------------------------------

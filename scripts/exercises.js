@@ -42,6 +42,8 @@ function isVowel(char) {
     return false;
   }
 }
+var char = 'b';
+isVowel(char);
 // isVowel('a');
 
   // ---------------------
@@ -95,10 +97,34 @@ function multiply(array) {
   // ---------------------
   // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
   // ---------------------
+// function reverse(string)
 
-  function reverse(s) {
-    return [...s].reverse().join("");
-  }
+ var reverse = function(string) {
+   var length = string.length;
+   var reversed = [];
+   var joined = ('');
+   for ( i=length; i>0; i-- ) {
+reversed.push(string.charAt(i-1))  ;  
+   };
+   for (let i = 0; i < length; i++){
+     joined += (reversed[i]);
+   }
+   return joined;
+ }
+
+//  function reverse (string) {
+//   var length = string.length;
+//   var reversed = [];
+//   var joined = ('');
+//   for (i=length; i>0; i--) {
+// reversed.push(string.charAt(i-1))  ;  
+//   };
+//   for (i = 0; i < (length); i++){
+//     joined += (reversed[i]);
+//   }
+//   return joined;
+// }
+// var reverse = reverse('dogs');
 
   // ---------------------
   // Define a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -118,13 +144,32 @@ function multiply(array) {
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
   // ---------------------
-
-function filterLongWords()
+let filterLongWords = function(array, int) {
+var length = array.length;
+var longest = [];
+for (i = 0; i < length; i++){
+  if (array[i.length > int]) {
+    longest[longest.length] = array [i];
+  }
+}
+return longest;
+}
 
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
 
+  let charFreq = function(string) {
+    var list = {};
+    var length = string.length;
+    for (i = 0; i < length; i++) {
+      if (string.charAt(i) in list)
+      list [ string.charAt(i)] += +1;
+     else
+     list[string.charAt(i)] =1;
+    }
+    return list;
+  }
 
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
