@@ -4,13 +4,17 @@
   // ---------------------
   // Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
   // ---------------------
- function max() {
-  if (4 > 2) {
-return 4;
+ function max(num1, num2) {
+  if (num1 > num2) {
+return num1;
 } else{
-  return false;
+  return num2;
 } }
-max();
+
+// function is called max,
+//  parameters are num1 and num2
+// returning a number
+// 
 
   // ---------------------
   // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
@@ -25,12 +29,23 @@ function maxOfThree() {
   }
   return max;
 }
+// orrrrrr
+if (num1 > num2 && num1 > num3) {
+  return num1;
+} else if (num2 > num3){
+  return num2;
+} else {
+  return num3;
+}
 // maxOfThree(1, 2, 3);
 
   // ---------------------
   // Define a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
   // ---------------------
 
+// function called isVowel
+// param = char
+// returns true or false
 function isVowel(char) {
   if (char === "a" ||
       char === "e" ||
@@ -42,31 +57,29 @@ function isVowel(char) {
     return false;
   }
 }
-var char = 'b';
-isVowel(char);
+
+// 'aeiou'.includes(char);
+
+// var char = 'b';
+// isVowel(char);
 // isVowel('a');
 
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
-//   let isvowel = false, vowel;
-//   for (let i = 0; i < array.length; i++) {
-//       vowel = vowel[i];
-//       if (letter == vowel) {
-//   isvowel = true;
-//   break;
-//       }
-//   }
-// }
-// if (!isvowel);
-let consonant = ['bcdfghjklmnpqrstvwxz'];
+
+// function name is rovarspraket
+// param is any text put in 
+// returns an array JOINED back TOGETHER to make a string
+
 function rovarspraket(text){
-  if(text === consonant) {
-    text += text;
-    return text;
-  } else {
-    text += "o";
+  text = text.toLowerCase().split(''); //Fun => ['f', 'u', 'n']
+  for (let i =0 ; i < text.length; i++) {
+   if( 'bcdfghjklmnpqrstvwxz'.includes(text[i]) ) {
+      text[i] = text[i] + "o" + text[i];  //'f' => 'fof'; ['fof', u , 'non']
+   }
   }
+  return text.join(""); //'fofunon'; JOINS all text from the array
 }
 
   // ---------------------
@@ -82,15 +95,24 @@ function rovarspraket(text){
 // }
 // }
 
-function sum(myArray) {
-  return myArray.reduce(function(a,b) { return a + b; });
-}
-function multiply(array) {
-  let sum = 1;
-  for (var i=0; i < array.length; i++) {
-    sum = sum * array[i];
+// function sum(myArray) {
+//   return myArray.reduce(function(a,b) { return a + b; });
+// }
+
+function sum(arr) {
+  let sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
   }
   return sum;
+}
+
+function multiply(array) {
+  let product = 1;
+  for (var i=0; i < array.length; i++) {
+    product = product * array[i];
+  }
+  return product;
 }
 
 
@@ -99,18 +121,17 @@ function multiply(array) {
   // ---------------------
 // function reverse(string)
 
- var reverse = function(string) {
-   var length = string.length;
-   var reversed = [];
-   var joined = ('');
-   for ( i=length; i>0; i-- ) {
-reversed.push(string.charAt(i-1))  ;  
-   };
-   for (let i = 0; i < length; i++){
-     joined += (reversed[i]);
+ function reverse(str) { //happy
+   let strArray = [];
+
+   for (let i = 0; i < str.length; i++) {
+     strArray.unshift(str[i]); // ['y', 'p' , 'p' , 'a' , 'h'] unshift adds to beginning of array
    }
-   return joined;
+
+   return strArray.join(''); //yppah
  }
+
+// other way to do it ===>  str.split('')).reverse().join('');
 
 //  function reverse (string) {
 //   var length = string.length;
@@ -129,11 +150,15 @@ reversed.push(string.charAt(i-1))  ;
   // ---------------------
   // Define a function findLongestWord() that takes an array of words and returns the length of the longest one.
   // ---------------------
+//function name is findLongestWord
 
+//param is str
+
+//re
  function findLongestWord(str) {
   let words = str.split('');
   let maxLength = 0;
-  for (var i=0; i <words.length; i++) {
+  for (var i=0; i < words.length; i++) {
     if (words[i].length > maxLength){
       maxLength = words[i].length;
     }
@@ -144,12 +169,15 @@ reversed.push(string.charAt(i-1))  ;
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
   // ---------------------
-let filterLongWords = function(array, int) {
-var length = array.length;
-var longest = [];
-for (i = 0; i < length; i++){
-  if (array[i.length > int]) {
-    longest[longest.length] = array [i];
+
+      //params are array and i
+      //returns the words longer than i
+
+function filterLongWords (array, i) {
+const longest = [];
+for (let j = 0; j < length; j++){
+  if (array[j].length > i) {
+    longest.push (array [j]);     //push adds to end of array
   }
 }
 return longest;
@@ -158,19 +186,19 @@ return longest;
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
-
-  let charFreq = function(string) {
-    var list = {};
-    var length = string.length;
+function charFreq (string) {
+    const list = {};
+    let length = string.length;
     for (i = 0; i < length; i++) {
       if (string.charAt(i) in list)
       list [ string.charAt(i)] += +1;
-     else
-     list[string.charAt(i)] =1;
+     else{
+     list[string.charAt(i)] =1; 
     }
-    return list;
+    
   }
-
+  return list;
+}
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
   ////////////////////////////////////////////////////////////////////////
