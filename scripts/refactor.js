@@ -349,10 +349,10 @@ var callLater = function(timeout, callback) {
 
 // Put your answer below -------------------------
 
-setTimeout(function callLater(timeout, callback){
-return 
+setTimeout(function callLater(timeout){
+return timeout;
 }, 3000) ;
-
+return callback;
 
 
 // -----------------------------------------------
