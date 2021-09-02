@@ -186,6 +186,10 @@ return longest;
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
+
+  // function name charFreq
+  // param is string(any string)
+  // checking to see if the string has characters and adds one to frequency in list
 function charFreq (string) {
     const list = {};
     let length = string.length;

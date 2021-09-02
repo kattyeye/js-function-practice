@@ -33,7 +33,7 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
-var doSomethingCool = function() {
+let doSomethingCool = function() {
   console.log("Something Cool!");
 }
 
@@ -56,9 +56,9 @@ setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
-let sayHi = function(){
-  alert("Hello, World!");
-}
+// let sayHi = function(){
+//   alert("Hello, World!");
+// }
 setTimeout(function(){
   alert("Hello, World!");
 }, 2000);
@@ -92,7 +92,7 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
-// [b] because the function is logging the first letter it reads and letter = "y" is defined above the console.log which is being hoisted, then the function resets and looks outside of the function and z is defined.
+// [c] because the function is logging the first letter it reads without having to wait one millisecond, code keeps going, letter x is never logged.
 
 // // -----------------------------------------------
 
@@ -115,8 +115,8 @@ var reverseStr = function(str) {
 
 // Put your answer below -------------------------
 
-function reverseStr (str) {
-  return [...str].reverse().join("");
+const reverseStr = function(str){
+  return str.split('').reverse().join('');
 }
 
 
@@ -152,17 +152,21 @@ var spanishColor = function(colorName) {
 };
 
 // Put your answer below -------------------------
+const colors = {
+  rojo : '#ff0000',
+  blanco : '#ffffff',
+  azul : '#0000ff',
+  verde : '#00ff00',
+  negro : '#000000'
+}
 
-function spanishColor(colorName) {
- return { 
-   rojo : '#ff0000',
-   blanco : '#ffffff',
-   azul : '#0000ff',
-   verde : '#00ff00',
-   negro : '#000000'
- }
+// function spanishColor(colorName) {
+//  return colors[colorName];
+  
+//  }
  
-
+const spanishColor = function(colorName) {
+  return colors[colorName];
 }
 
 // -----------------------------------------------
@@ -181,7 +185,7 @@ var foo = "bar";
 
 // Put your answer below -------------------------
 
-let foo = foo;
+let foo;
   foo = "bar";
 
 // -----------------------------------------------
@@ -206,12 +210,18 @@ var callTenTimes = function(callback) {
 // callTenTime(functionName);
 
 // Put your answer below -------------------------
-function callNtimes(callMe) {
-  for (let i = 0; i < callMe.length; i++) {
-    
-  }
-  return callMe;
+
+const callNtimes = function(callback, i) {
+  const range = Array.from(Array(i).keys(i));
+  range.forEach(callback);
 }
+
+// function callNtimes(callMe) {
+//   for (let i = 0; i < callMe.length; i++) {
+    
+//   }
+//   return callMe;
+// }
 
 // -----------------------------------------------
 
@@ -240,15 +250,20 @@ var decreaseScore = function() {
 
 // Put your answer below -------------------------
 
-var score = {i};
+(function() {
+  var score = 0;
 
-var increaseScore = function() {
-  score++;
-};
+  var increaseScore = function() {
+    score++;
+  };
+  
+  var decreaseScore = function() {
+    score--;
 
-var decreaseScore = function() {
-  score--;
-};
+}
+);
+
+//IIFE
 
 // -----------------------------------------------
 
@@ -293,16 +308,16 @@ let twoPlusTwo = addNumbers (2,2);
 
 var speed = 0;
 
-var accelerate = function(amount) {
+var accelerate = function(amount) { // amount is undefined
   speed += amount;
 };
 
 // Put your answer below -------------------------
 
 // The function was setting the speed to NaN because amount is not defined
-function accelerate(amount) {
-  for (i=0; i < amount; i++){
-    speed += [i];
+function accelerate(amount=1) {
+  // speed = speed + amount;
+  speed += amount;
   }
   
 }
