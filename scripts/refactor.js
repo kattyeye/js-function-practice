@@ -1,3 +1,5 @@
+// @ts-check
+
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 //     ___  ___________  _______________  ___   //
@@ -17,310 +19,307 @@
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
+  // 1. --------------------------------------------
 
-// 1. --------------------------------------------
+  // This is a named function, convert it
+  // to a variable containing an anonymous
+  // function
 
-// This is a named function, convert it
-// to a variable containing an anonymous
-// function
+  function doSomethingCool() {
+    console.log("Something Cool!");
+  }
 
-function doSomethingCool() {
-  console.log("Something Cool!");
-}
+  // Put your answer below -------------------------
 
-// Put your answer below -------------------------
+  function somethingCool(el) {
+    console.log("Something Cool!");
+  }
 
-let doSomethingCool = function() {
-  console.log("Something Cool!");
-}
+  // -----------------------------------------------
 
-// -----------------------------------------------
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  // 2. --------------------------------------------
 
-// 2. --------------------------------------------
+  // Here we are using setTimeout to call a function
+  // after 2 seconds. Refactor to use an anonymous
+  // function
 
-// Here we are using setTimeout to call a function
-// after 2 seconds. Refactor to use an anonymous
-// function
+  function sayHi() {
+    alert("Hello, World!");
+  }
 
-function sayHi() {
-  alert("Hello, World!");
-}
+  setTimeout(sayHi, 2000);
 
-setTimeout(sayHi, 2000);
+  // Put your answer below -------------------------
 
-// Put your answer below -------------------------
+  // let sayHi = function(){
+  //   alert("Hello, World!");
+  // }
+  setTimeout(function () {
+    alert("Hello, World!");
+  }, 2000);
 
-// let sayHi = function(){
-//   alert("Hello, World!");
-// }
-setTimeout(function(){
-  alert("Hello, World!");
-}, 2000);
+  // -----------------------------------------------
 
-// -----------------------------------------------
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  // 3. --------------------------------------------
 
-// 3. --------------------------------------------
+  // The code below will log the letter twice. What
+  // is the order that will be logged?
 
-// The code below will log the letter twice. What
-// is the order that will be logged?
+  // [a]: x then y then z
+  // [b]: y then z
+  // [c]: z then y
+  // [d]: x then z
 
-// [a]: x then y then z
-// [b]: y then z
-// [c]: z then y
-// [d]: x then z
+  // Please explain your answer.
 
-// Please explain your answer.
+  var letter = "x";
 
-var letter = "x";
+  setTimeout(function () {
+    letter = "y";
+    console.log("The letter is", letter);
+  }, 1);
 
-setTimeout(function(){
-  letter = "y";
+  letter = "z";
   console.log("The letter is", letter);
-}, 1);
 
-letter = "z";
-console.log("The letter is", letter);
+  // Put your answer below -------------------------
 
-// Put your answer below -------------------------
+  // [c] because the function is logging the first letter it reads without having to wait one millisecond, code keeps going, letter x is never logged.
 
-// [c] because the function is logging the first letter it reads without having to wait one millisecond, code keeps going, letter x is never logged.
+  // // -----------------------------------------------
 
-// // -----------------------------------------------
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  // 4. --------------------------------------------
 
-// 4. --------------------------------------------
+  // The function below reverses a string. The body
+  // of the function is 5 lines of code. Refactor
+  // this function to do the same thing with 1 line
 
-// The function below reverses a string. The body
-// of the function is 5 lines of code. Refactor
-// this function to do the same thing with 1 line
+  var reverseStr = function (str) {
+    var arr;
+    arr = str.split("");
+    arr = arr.reverse();
+    str = arr.join("");
+    return str;
+  };
 
-var reverseStr = function(str) {
-  var arr;
-  arr = str.split("");
-  arr = arr.reverse();
-  str = arr.join("");
-  return str;
-};
+  // Put your answer below -------------------------
 
-// Put your answer below -------------------------
+  const reverseString = function (str) {
+    return str.split("").reverse().join("");
+  };
 
-const reverseStr = function(str){
-  return str.split('').reverse().join('');
-}
+  // -----------------------------------------------
 
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// -----------------------------------------------
+  // 5. --------------------------------------------
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  // The function below takes the spanish word for
+  // the colors red, white, blue, green, and black
+  // and returns the hex code for that color.
+  // Refactor this function to use an object
+  // instead of an if/else statement.
 
-// 5. --------------------------------------------
+  var spanishColor = function (colorName) {
+    if (colorName.toLowerCase() === "rojo") {
+      return "#ff0000";
+    } else if (colorName.toLowerCase() === "blanco") {
+      return "#ffffff";
+    } else if (colorName.toLowerCase() === "azul") {
+      return "#0000ff";
+    } else if (colorName.toLowerCase() === "verde") {
+      return "#00ff00";
+    } else if (colorName.toLowerCase() === "negro") {
+      return "#000000";
+    }
+  };
 
-// The function below takes the spanish word for
-// the colors red, white, blue, green, and black
-// and returns the hex code for that color.
-// Refactor this function to use an object
-// instead of an if/else statement.
+  // Put your answer below -------------------------
+  const colors = {
+    rojo: "#ff0000",
+    blanco: "#ffffff",
+    azul: "#0000ff",
+    verde: "#00ff00",
+    negro: "#000000",
+  };
 
-var spanishColor = function(colorName) {
-  if (colorName.toLowerCase() === "rojo") {
-    return "#ff0000";
-  }
-  else if (colorName.toLowerCase() === "blanco") {
-    return "#ffffff";
-  }
-  else if (colorName.toLowerCase() === "azul") {
-    return "#0000ff";
-  }
-  else if (colorName.toLowerCase() === "verde") {
-    return "#00ff00";
-  }
-  else if (colorName.toLowerCase() === "negro") {
-    return "#000000";
-  }
-};
+  // function spanishColor(colorName) {
+  //  return colors[colorName];
 
-// Put your answer below -------------------------
-const colors = {
-  rojo : '#ff0000',
-  blanco : '#ffffff',
-  azul : '#0000ff',
-  verde : '#00ff00',
-  negro : '#000000'
-}
+  //  }
 
-// function spanishColor(colorName) {
-//  return colors[colorName];
-  
-//  }
- 
-const spanishColor = function(colorName) {
-  return colors[colorName];
-}
+  const spanishColors = function (colorName) {
+    return colors[colorName];
+  };
 
-// -----------------------------------------------
+  // -----------------------------------------------
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// 6. --------------------------------------------
+  // 6. --------------------------------------------
 
-// Below is a variable *declaration* and an
-// *assignment* in a single line of code.
-// Break it up so that the declaration and
-// assignment are happening on 2 seperate lines.
+  // Below is a variable *declaration* and an
+  // *assignment* in a single line of code.
+  // Break it up so that the declaration and
+  // assignment are happening on 2 seperate lines.
 
-var foo = "bar";
+  var foo = "bar";
 
-// Put your answer below -------------------------
+  // Put your answer below -------------------------
 
-let foo;
-  foo = "bar";
+  let joo;
+  joo = "bar";
 
-// -----------------------------------------------
+  // -----------------------------------------------
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// 7. --------------------------------------------
+  // 7. --------------------------------------------
 
-// The function `callTenTimes` takes an argument
-// that is another function and will call that
-// function 10 times. Refactor this into another
-// function called `callNtimes` that allows you
-// to specify a number of times to call the given
-// function.
+  // The function `callTenTimes` takes an argument
+  // that is another function and will call that
+  // function 10 times. Refactor this into another
+  // function called `callNtimes` that allows you
+  // to specify a number of times to call the given
+  // function.
 
-var callTenTimes = function(callback) {
-  var range = Array.from(Array(10).keys());
-  range.forEach(callback);
-};
+  var callTenTimes = function (callback) {
+    var range = Array.from(Array(10).keys());
+    range.forEach(callback);
+  };
 
-// callTenTime(functionName);
+  // callTenTime(functionName);
 
-// Put your answer below -------------------------
+  // Put your answer below -------------------------
 
-const callNtimes = function(callback, i) {
-  const range = Array.from(Array(i).keys(i));
-  range.forEach(callback);
-}
+  const callNtimes = function (callback, i) {
+    const range = Array.from(Array(i).keys());
+    range.forEach(callback);
+  };
 
-// function callNtimes(callMe) {
-//   for (let i = 0; i < callMe.length; i++) {
-    
-//   }
-//   return callMe;
-// }
+  // function callNtimes(callMe) {
+  //   for (let i = 0; i < callMe.length; i++) {
 
-// -----------------------------------------------
+  //   }
+  //   return callMe;
+  // }
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
+  // -----------------------------------------------
 
-// 8. --------------------------------------------
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
 
-// Below is the beginning code for an awesome game
-// but already suffers a vulnerability that allows
-// the savvy user to open the console and adjust
-// the score to whatever they want. Refactor the
-// code to protect from this.
+  // 8. --------------------------------------------
 
-// HINT: "global scope"
+  // Below is the beginning code for an awesome game
+  // but already suffers a vulnerability that allows
+  // the savvy user to open the console and adjust
+  // the score to whatever they want. Refactor the
+  // code to protect from this.
 
-var score = 0;
+  // HINT: "global scope"
 
-var increaseScore = function() {
-  score++;
-};
-
-var decreaseScore = function() {
-  score--;
-};
-
-// Put your answer below -------------------------
-
-(function() {
   var score = 0;
 
-  var increaseScore = function() {
+  var increaseScore = function () {
     score++;
   };
-  
-  var decreaseScore = function() {
+
+  var decreaseScore = function () {
     score--;
+  };
 
-}
-);
+  // Put your answer below -------------------------
 
-//IIFE
-
-// -----------------------------------------------
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-
-// 9. --------------------------------------------
-
-// The below function does not work. The variable
-// twoPlusTwo gets set to `undefined`. Refactor
-// the function to make it work.
-
-var addNumbers = function(numberA, numberB) {
-  console.log(numberA + numberB);
-};
-
-var twoPlusTwo = addNumbers(2,2);
-
-// Put your answer below -------------------------
-
-let addNumbers = function(numberA, numberB) {
-return numberA + numberB;
-}
-let twoPlusTwo = addNumbers (2,2); 
-
-// -----------------------------------------------
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-
-// 10. -------------------------------------------
-
-// Below is a snippet of code taken from a racing
-// game (not really!) It allows you to accelerate
-// the speed by a given amount. The problem is if
-// you call the function without specifying an
-// amount, it inadvertently sets the speed to NaN
-// First write a comment that explains why it was
-// setting speed to NaN when no parameter is given
-// Then refactor the function to have a default
-// amount of 1 if no param is given.
-
-var speed = 0;
-
-var accelerate = function(amount) { // amount is undefined
-  speed += amount;
-};
-
-// Put your answer below -------------------------
-
-// The function was setting the speed to NaN because amount is not defined
-function accelerate(amount=1) {
-  // speed = speed + amount;
-  speed += amount;
+  function theGame() {
+    let score = 0;
+    let points = true;
+    if (points) {
+      return function higherScore() {
+        score++;
+        return score;
+      };
+    } else {
+      return function lowerScore() {
+        score--;
+        return score;
+      };
+    }
   }
-  
-}
+
+  //IIFE
+
+  // -----------------------------------------------
+
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+
+  // 9. --------------------------------------------
+
+  // The below function does not work. The variable
+  // twoPlusTwo gets set to `undefined`. Refactor
+  // the function to make it work.
+
+  var addNumbers = function (numberA, numberB) {
+    console.log(numberA + numberB);
+  };
+
+  var twoPlusTwo = addNumbers(2, 2);
+
+  // Put your answer below -------------------------
+
+  let addNumberss = function (numberA, numberB) {
+    return numberA + numberB;
+  };
+  let twoPlusTwoo = addNumbers(2, 2);
+
+  // -----------------------------------------------
+
+  //////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+
+  // 10. -------------------------------------------
+
+  // Below is a snippet of code taken from a racing
+  // game (not really!) It allows you to accelerate
+  // the speed by a given amount. The problem is if
+  // you call the function without specifying an
+  // amount, it inadvertently sets the speed to NaN
+  // First write a comment that explains why it was
+  // setting speed to NaN when no parameter is given
+  // Then refactor the function to have a default
+  // amount of 1 if no param is given.
+
+  var speed = 0;
+
+  var accelerate = function (amount) {
+    // amount is undefined
+    speed += amount;
+  };
+
+  // Put your answer below -------------------------
+
+  // The function was setting the speed to NaN because amount is not defined
+  function acceleration(amount = 1) {
+    // speed = speed + amount;
+    speed += amount;
+  }
+});
 
 // -----------------------------------------------
 
@@ -358,19 +357,18 @@ function accelerate(amount=1) {
 //       ...
 //     });
 
-var callLater = function(timeout, callback) {
-  setTimeout(callback, timeout);
-};
-
+// callLater(function(timeout, callback) {
+//   setTimeout(callback, timeout);
+// }),
+// 10000;
 // Put your answer below -------------------------
-
-setTimeout(function callLater(timeout){
-return timeout;
-}, 3000) ;
-return callback;
-
-
+let callLater = function (timeout, callback) {
+  if (typeof timeout === "number") {
+    setTimeout(callback, timeout);
+  } else {
+    setTimeout(timeout, 2000);
+  }
+};
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
-})();
